@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday, Preksha!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Pacifico&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="birthday-card">
+      <span class="floating floating-one" aria-hidden="true">♥</span><span class="floating floating-two" aria-hidden="true">✦</span><span class="floating floating-three" aria-hidden="true">♡</span>
+
+      <!-- COUNTDOWN: this runs before the three birthday pages. -->
+      <section class="panel countdown-page" data-page="0" aria-live="polite" aria-labelledby="countdown-title">
+        <p class="countdown-copy" id="countdown-title">A little birthday surprise is about to begin</p>
+        <p class="countdown-number" id="countdown-number">3</p>
+        <p class="countdown-name">for Preksha ✨</p>
+      </section>
+
+      <!-- PAGE 1: opening page -->
+      <section class="panel intro-page" data-page="1" aria-labelledby="welcome-title" hidden>
+        <h1 id="welcome-title">Happy Birthday<br />Preksha <span>💗</span></h1>
+        <!-- Change this opening line to anything you want. -->
+        <p class="typing-line">Hey Preksha, today is your special day! ✨</p>
+        <button class="primary-button next-button enter-world-button" type="button">Let’s enter my world. ✨<span class="click-cue">Click me</span></button>
+      </section>
+
+      <!-- PAGE 2: custom surprise page -->
+      <section class="panel celebration-page" data-page="1" aria-labelledby="celebration-title" hidden>
+        <p class="eyebrow">A little something for you</p>
+        <h2 id="celebration-title" class="gottha-title">En gottha!! <span>💖</span></h2>
+        <img class="monkey-cutout" src="assets/preksha-monkey-cutout.png" alt="Cute cartoon monkey waving" />
+        <button class="primary-button next-button" type="button">Click Here... 💕</button>
+      </section>
+
+      <!-- PAGE 3: funny not-ready page -->
+      <section class="panel not-ready-page" data-page="2" aria-labelledby="not-ready-title" hidden>
+        <p class="eyebrow">Wait, one more thing</p>
+        <h2 id="not-ready-title">When you’re not ready, you feel like you look like this… but wait! 😉</h2>
+        <img class="not-ready-image" src="assets/not-ready-face.jpeg" alt="A funny exaggerated smiling face" />
+        <button class="primary-button next-button" type="button">Okay, continue →</button>
+      </section>
+
+      <!-- PAGE 4: adorable page -->
+      <section class="panel adorable-page" data-page="3" aria-labelledby="adorable-title" hidden>
+        <p class="eyebrow">One last cute thing</p>
+        <h2 id="adorable-title">You look like this — adorable to see....</h2>
+        <img class="elephant-cutout" src="assets/sleeping-elephant-cutout.png" alt="Sleeping baby elephant with a pink bow in a little bed" />
+        <p class="adorable-note">Okay okay, gotha aythu. Can we move to the next page?</p>
+        <button class="primary-button next-button" type="button">Yes, move on →</button>
+      </section>
+
+      <!-- PAGE 5: flower reveal page -->
+      <section class="panel flower-page" data-page="4" aria-labelledby="flower-title" hidden>
+        <p class="eyebrow">For Preksha</p>
+        <h2 id="flower-title">Three little flowers for you</h2>
+        <div class="flower-reveals" aria-live="polite">
+          <article class="flower-card" data-flower="0" hidden><span class="flower-art" aria-hidden="true">🌻</span><h3>Sunflower</h3><p>“A little sunshine in every petal.”</p></article>
+          <article class="flower-card" data-flower="1" hidden><span class="flower-art lily" aria-hidden="true">🌸</span><h3>Lily</h3><p>“A little grace in every petal.”</p></article>
+          <article class="flower-card" data-flower="2" hidden><span class="flower-art" aria-hidden="true">🪷</span><h3>Lotus</h3><p>“A little serenity in every petal.”</p></article>
+        </div>
+        <p class="flower-final" id="flower-final" hidden>“A little sunshine in her eyes, a little grace in her soul, and a little serenity in her heart.” 🌻🤍🪷</p>
+        <p class="flower-note" id="flower-note" hidden>I know I didn’t put a red rose here — I created this page because I can’t give flowers directly, so let’s move further.</p>
+        <button class="primary-button flower-button" type="button">Click Here... ✨</button>
+      </section>
+
+      <!-- PAGE 6: character reveal page -->
+      <section class="panel character-page" data-page="5" aria-labelledby="character-title" hidden>
+        <p class="eyebrow">A little more about you</p>
+        <h2 id="character-title">Her character &amp; looks</h2>
+        <img class="character-photo" src="assets/preksha-character.webp" alt="Preksha holding flowers" />
+        <div class="character-reveals" aria-live="polite">
+          <article class="character-card" data-character="0" hidden><h3>A little magic in those eyes</h3><p>Illa illa — something more than magic lives in those eyes.</p></article>
+          <article class="character-card" data-character="1" hidden><h3>A little thunder in her temper</h3><p>You know, I know, and your parents know this.</p></article>
+          <article class="character-card" data-character="2" hidden><h3>A little possessiveness</h3><p>I can’t explain this. Still, I remember that 37 min no-reply reaction.</p></article>
+        </div>
+        <div class="character-final" id="character-final" hidden><p>I have a lot to tell, but it’s not the time :: <em>(Papuu ge nidde mado time hagide)</em></p><p>Chorry, I have only one photo. I know mail alli idave hantha, but open madudre I have to delete because I have given a word to you.</p></div>
+        <button class="primary-button character-button" type="button">Click Here... ✨</button>
+      </section>
+
+      <!-- PAGE 7: dancing birthday and memory page -->
+      <section class="panel memories-page" data-page="6" aria-labelledby="memories-title" hidden>
+        <p class="eyebrow">Move your cursor over each box</p>
+        <h2 id="memories-title" class="dancing-title"><span>Happy</span> <span>Birthday</span> <span>Preksha!</span></h2>
+        <div class="memory-grid">
+          <article class="memory-box"><span class="elephant-popup" aria-label="Baby elephant lifting its trunk and squirting hearts"><img class="elephant-down" src="assets/elephant-trunk-down.png" alt="" /><img class="elephant-hearts" src="assets/elephant-heart-squirt.png" alt="" /></span><h3>That kind heart</h3><p>You’re such a kind and wonderful person. I feel lucky to share such a good bond with you.</p></article>
+          <article class="memory-box"><span class="elephant-popup" aria-label="Baby elephant lifting its trunk and squirting hearts"><img class="elephant-down" src="assets/elephant-trunk-down.png" alt="" /><img class="elephant-hearts" src="assets/elephant-heart-squirt.png" alt="" /></span><h3>Your lovely smile</h3><p>A smile that turns even an ordinary moment into something warm.</p></article>
+          <article class="memory-box"><span class="elephant-popup" aria-label="Baby elephant lifting its trunk and squirting hearts"><img class="elephant-down" src="assets/elephant-trunk-down.png" alt="" /><img class="elephant-hearts" src="assets/elephant-heart-squirt.png" alt="" /></span><h3>Being wonderfully you</h3><p>Every little thing that makes you unique is exactly what makes you unforgettable.</p></article>
+          <article class="memory-box"><span class="elephant-popup" aria-label="Baby elephant lifting its trunk and squirting hearts"><img class="elephant-down" src="assets/elephant-trunk-down.png" alt="" /><img class="elephant-hearts" src="assets/elephant-heart-squirt.png" alt="" /></span><h3>Memories</h3><p>Looking at your eyes — log out hago time alli nin nanna nodtha ididdiddu, and Majestic alli we standing opposite each other. This memory and feeling are never gonna change. I know you never gonna choose me hantha, but it’s up to you. I am not gonna force you or chase you for the same!</p></article>
+        </div>
+        <p class="memories-thanks">THANK YOU very much. Can move further — just 2 more pages.</p>
+        <button class="primary-button next-button" type="button">Let’s move further →</button>
+      </section>
+
+      <!-- PAGE 8: birthday wishes celebration -->
+      <section class="panel wishes-page" data-page="7" aria-labelledby="wishes-title" hidden>
+        <video class="fireworks-video" id="fireworks-video" muted loop playsinline aria-hidden="true"><source src="assets/fireworks-celebration.mov" type="video/quicktime" /></video>
+        <div class="wish-bloom" aria-hidden="true">🌸 &nbsp; ✦ &nbsp; 🌻</div>
+        <p class="eyebrow">The birthday girl</p>
+        <h2 id="wishes-title">Wishes for Preksha</h2>
+        <p class="wish-message">May your birthday be full of laughter, flowers, beautiful surprises, and every tiny thing that makes your heart feel happy.</p>
+        <p class="wish-message">May the year ahead bring you the peace you deserve, the dreams you want, and more reasons to shine every day.</p>
+        <p class="wish-message wish-extra">⭐ Happy for you, Kane 💙 If you’re going out with your loved ones, that’s completely fine. But if you’re going to the temple alone, and if you’re comfortable with it, I can come with you. Just call me if you feel like having me there—I’ll be there. No pressure at all, only if you’re comfortable.</p>
+        <p class="wish-signoff">Happy Birthday, birthday girl! 🎉</p>
+        <button class="primary-button next-button" type="button">One last surprise →</button>
+      </section>
+
+      <!-- FINAL PAGE: inspired by the requested birthday-message layout -->
+      <section class="panel reference-final-page" data-page="8" aria-labelledby="final-page-title" hidden>
+        <h2 id="final-page-title">Happy bornday, PreksHa 🎉</h2>
+        <p class="final-intro">Another beautiful year of you. Here’s to every smile, every memory, and the next chapter waiting for you.</p>
+        <figure class="final-photo-frame"><img src="assets/birthday-donkey.png" alt="A funny donkey on a mountain road" /><figcaption>Out of my photos, I liked this one, so I chose it!!</figcaption></figure>
+        <section class="lyric-card" aria-label="Birthday song lyrics" aria-live="polite"><p class="lyric-line is-current" data-start="0">🎂 Ugh, It’s Your Birthday?!......😄<br />(Eyu (jodh-z) Remix🎹)<br /><br />Ugh, it’s your birthday? 🎉 What a pain, 😩<br />Another year of zero brain 🧠❌.<br />I’d send a gift 🎁—but let’s be real, 🙄<br />You’re lucky I even feel. 😜</p><p class="lyric-line" data-start="16">Wake up 🌞, take a shower 🚿, wash your face, 🧼<br />Try looking human—just in case. 🙃<br />Say a prayer 🙏, fix your hair 💇‍♂️,<br />Lord knows your brain 🧠 needs some repair.</p><p class="lyric-line" data-start="31">[----Instrumental intro 🎶----]</p><p class="lyric-line" data-start="38">I thought real hard 🤔: what should I send?<br />A gift for you, my “dearest” friend. 💝<br />I almost sent a human heart 💓,<br />But wow—it’s pricey, off the chart! 💸</p><p class="lyric-line" data-start="54">I thought real hard 🤔: what should I send?<br />A gift for you, my “dearest” friend. 💝</p><span aria-hidden="true">👇👇👇👇👇👇👇👇👇👇</span></section>
+        <audio class="birthday-audio" id="birthday-audio" controls preload="metadata"><source src="assets/ughs-your-birthday-one-minute.mp3" type="audio/mpeg" />Your browser does not support audio playback.</audio>
+        <p class="final-message">This page is only for fun—to make you smile and irritate you a little bit.</p>
+        <button class="primary-button restart-button" type="button">Start again ↻</button>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
