@@ -1,5 +1,9 @@
 # Birthday site for Preksha
 
+## Public website
+
+[Open Preksha's Birthday Surprise](https://harisha810560-cell.github.io/birthday/)
+
 Open `index.html` in any browser to preview it.
 
 ## Personalising the words
