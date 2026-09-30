@@ -9,6 +9,7 @@ function showPage(page) {
   }
   currentPage = page;
   panels.forEach((panel, index) => panel.hidden = index !== currentPage);
+  window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   if (panels[currentPage].classList.contains('wishes-page')) {
     launchWishes();
     fireworksVideo.currentTime = 0;
@@ -75,6 +76,15 @@ document.addEventListener('pointermove', event => {
   heart.style.top = `${event.clientY}px`;
   document.body.append(heart);
   heart.addEventListener('animationend', () => heart.remove());
+});
+
+document.querySelectorAll('.memory-box').forEach(box => {
+  box.addEventListener('click', () => {
+    if (!window.matchMedia('(hover: none)').matches) return;
+    document.querySelectorAll('.memory-box').forEach(item => item.classList.remove('is-peeking'));
+    box.classList.add('is-peeking');
+    window.setTimeout(() => box.classList.remove('is-peeking'), 1800);
+  });
 });
 
 function launchWishes() {

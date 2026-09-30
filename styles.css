@@ -1,7 +1,7 @@
 :root { --lavender: #f0edff; --ink: #342a52; --pink: #ed5c9a; --deep-pink: #cf3b7b; --peach: #ffc9a9; --white: #fff; }
 * { box-sizing: border-box; }
-body { min-height: 100vh; margin: 0; overflow: hidden; color: var(--ink); font-family: "DM Sans", sans-serif; background: radial-gradient(circle at 12% 15%, #fff6fa 0 10%, transparent 28%), radial-gradient(circle at 90% 85%, #e2ddff 0 8%, transparent 30%), var(--lavender); }
-.birthday-card { position: relative; display: grid; place-items: center; min-height: 100vh; padding: 2rem; isolation: isolate; }
+body { min-height: 100vh; margin: 0; overflow-x: hidden; overflow-y: auto; color: var(--ink); font-family: "DM Sans", sans-serif; background: radial-gradient(circle at 12% 15%, #fff6fa 0 10%, transparent 28%), radial-gradient(circle at 90% 85%, #e2ddff 0 8%, transparent 30%), var(--lavender); }
+.birthday-card { position: relative; display: grid; place-items: center; min-height: 100vh; min-height: 100svh; padding: 2rem; isolation: isolate; }
 .birthday-card::before { content: ""; position: absolute; width: min(78vw, 720px); height: min(78vw, 720px); border: 1px solid rgb(255 255 255 / .65); border-radius: 50%; z-index: -1; }
 .panel { width: min(100%, 600px); text-align: center; animation: rise .55s both; }
 .panel[hidden] { display: none; }
@@ -12,7 +12,7 @@ h1 span { color: var(--deep-pink); }
 h2 { color: var(--deep-pink); font-family: Pacifico, cursive; font-size: clamp(2.35rem, 6vw, 4.1rem); font-weight: 400; }
 .intro, .letter { max-width: 490px; margin: 1.5rem auto; font-size: clamp(1rem, 2.2vw, 1.16rem); line-height: 1.8; }
 .intro em { color: var(--deep-pink); font-weight: 700; }
-.primary-button { border: 0; border-radius: 999px; padding: .92rem 1.55rem; color: var(--white); cursor: pointer; font: 700 1rem "DM Sans", sans-serif; background: linear-gradient(110deg, var(--deep-pink), #f17eae); box-shadow: 0 12px 24px rgb(207 59 123 / .22); transition: transform .2s, box-shadow .2s; }
+.primary-button { min-height: 46px; border: 0; border-radius: 999px; padding: .92rem 1.55rem; color: var(--white); cursor: pointer; touch-action: manipulation; font: 700 1rem "DM Sans", sans-serif; background: linear-gradient(110deg, var(--deep-pink), #f17eae); box-shadow: 0 12px 24px rgb(207 59 123 / .22); transition: transform .2s, box-shadow .2s; }
 .primary-button:hover, .primary-button:focus-visible { transform: translateY(-3px); box-shadow: 0 16px 28px rgb(207 59 123 / .3); }
 .hint { margin: .9rem 0 0; color: #9b8db0; font-size: .82rem; }
 .cake { position: relative; width: 130px; height: 106px; margin: 0 auto 1.5rem; }
@@ -26,7 +26,49 @@ h2 { color: var(--deep-pink); font-family: Pacifico, cursive; font-size: clamp(2
 .progress { position: absolute; bottom: 2.1rem; display: flex; gap: .65rem; }.dot { width: 9px; height: 9px; padding: 0; border: 0; border-radius: 50%; cursor: pointer; background: #c8bddd; transition: all .25s; }.dot.is-current { width: 28px; border-radius: 99px; background: var(--pink); }
 .floating { position: absolute; z-index: -1; color: var(--pink); font-size: clamp(1.3rem, 3vw, 2rem); opacity: .7; animation: drift 4s ease-in-out infinite alternate; }.floating-one { top: 12%; left: 12%; }.floating-two { top: 23%; right: 14%; color: #e69a52; animation-delay: -2s; }.floating-three { bottom: 16%; left: 18%; color: #9c79d1; animation-delay: -1s; }.confetti::before, .confetti::after { position: absolute; top: 10%; z-index: -1; color: #f3a94f; font-size: 1.4rem; content: "✦  ·  ✦"; }.confetti::before { left: 8%; }.confetti::after { right: 8%; transform: rotate(16deg); }
 @keyframes rise { from { opacity: 0; transform: translateY(16px) scale(.98); } to { opacity: 1; transform: none; } } @keyframes drift { to { transform: translateY(-16px) rotate(12deg); } } @keyframes flicker { to { transform: scale(.84) rotate(45deg) translate(3px, -2px); } }
-@media (max-width: 520px) { .birthday-card { padding: 1.5rem; }.birthday-card::before { width: 110vw; height: 110vw; }.page-actions { gap: .45rem; }.primary-button { padding: .85rem 1rem; }.wish-list li { font-size: .93rem; }.progress { bottom: 1rem; } }
+@media (max-width: 700px) {
+  body { min-height: 100svh; -webkit-overflow-scrolling: touch; }
+  .birthday-card { display: flex; align-items: center; justify-content: center; min-height: 100svh; padding: 1.1rem .9rem 2rem; }
+  .birthday-card::before { position: fixed; width: 118vw; height: 118vw; }
+  .panel { width: 100%; margin: auto; padding: .7rem 0 1.2rem; }
+  h1 { font-size: clamp(2.55rem, 14vw, 3.65rem); }
+  h2 { font-size: clamp(2.1rem, 11vw, 3.15rem); }
+  .eyebrow { margin-bottom: .8rem; }
+  .primary-button { max-width: 100%; min-height: 48px; padding: .8rem 1.1rem; }
+  .click-cue { position: static; display: block; margin-top: .25rem; color: #fff; font-size: .62rem; transform: none; opacity: .88; }
+  .countdown-page { min-height: 75svh; }
+  .monkey-cutout { width: min(64vw, 235px); max-height: 34svh; }
+  .not-ready-image { width: min(76vw, 300px); max-height: 38svh; }
+  .elephant-cutout { width: min(84vw, 370px); max-height: 35svh; }
+  .flower-reveals { grid-template-columns: 1fr; gap: .55rem; margin: .85rem auto; }
+  .flower-card { min-height: 0; padding: .7rem .8rem; }
+  .flower-art { font-size: 2.8rem; }
+  .flower-card h3 { margin-top: .35rem; }
+  .character-photo { float: none; display: block; width: 135px; height: 175px; margin: .2rem auto .8rem; }
+  .character-reveals { margin-top: .65rem; }
+  .character-card { min-height: 0; }
+  .memory-grid { grid-template-columns: 1fr; gap: .6rem; }
+  .memory-box { min-height: 0; padding: .8rem .9rem; }
+  .memory-box.is-peeking { z-index: 2; transform: translateY(-3px); background: rgb(255 255 255 / .75); }
+  .memory-box.is-peeking .elephant-popup { opacity: 1; }
+  .memory-box.is-peeking .elephant-down { animation: trunk-lift .72s ease-in forwards; }
+  .memory-box.is-peeking .elephant-hearts { animation: heart-squirt .7s .58s ease-out forwards; }
+  .elephant-popup { right: .2rem; bottom: 82%; width: 98px; height: 98px; }
+  .wishes-page h2 { font-size: clamp(2.25rem, 12vw, 3.35rem); }
+  .wish-message { margin: .6rem auto; padding: .55rem .65rem; font-size: .91rem; line-height: 1.45; }
+  .wish-signoff { margin: .75rem auto; }
+  .reference-final-page { padding: .65rem .2rem 1.3rem; }
+  .reference-final-page h2 { font-size: clamp(1.9rem, 10vw, 2.7rem); }
+  .final-intro { font-size: .88rem; }
+  .final-photo-frame, .final-photo-frame img { width: 160px; }
+  .final-photo-frame img { height: 120px; }
+  .lyric-card { margin: .65rem auto; padding: .75rem; }
+  .lyric-line { font-size: .8rem; line-height: 1.38; }
+  .birthday-audio { width: min(100%, 310px); }
+  .page-actions { gap: .45rem; }
+  .wish-list li { font-size: .93rem; }
+  .progress { bottom: 1rem; }
+}
 
 /* Three-screen birthday flow */
 .countdown-page { display: grid; place-items: center; min-height: 300px; }.countdown-copy { margin: 0; color: #957b98; font-size: clamp(.92rem, 2vw, 1.05rem); }.countdown-number { margin: .45rem 0; color: var(--pink); font: clamp(7rem, 24vw, 13rem)/1 Pacifico, cursive; text-shadow: 0 8px 0 rgb(255 255 255 / .55), 0 16px 28px rgb(207 59 123 / .16); }.countdown-name { margin: 0; color: var(--deep-pink); font-weight: 700; letter-spacing: .05em; }
