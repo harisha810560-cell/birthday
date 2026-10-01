@@ -21,6 +21,19 @@ function showPage(page) {
     birthdayAudio.currentTime = 0;
     birthdayAudio.play().catch(() => {});
   }
+  if (panels[currentPage].classList.contains('booty-page')) {
+    bootyVideo.currentTime = 0;
+    bootyVideo.hidden = false;
+    bootyButton.hidden = false;
+    bootyButton.disabled = true;
+    bootyButton.textContent = 'W8 for the end, then click the button';
+    bootyGallery.hidden = true;
+    bootyNextButton.hidden = true;
+    bootyStatus.textContent = 'Watch till the end...';
+    bootyVideo.play().catch(() => {});
+  } else {
+    bootyVideo.pause();
+  }
 }
 document.querySelectorAll('.next-button').forEach(button => button.addEventListener('click', () => showPage(currentPage + 1)));
 let revealedFlowers = 0;
@@ -67,15 +80,23 @@ characterButton.addEventListener('click', () => {
   showPage(currentPage + 1);
 });
 
-document.addEventListener('pointermove', event => {
-  if (event.pointerType === 'touch') return;
+function spawnGreenHeart(x, y) {
   const heart = document.createElement('span');
   heart.className = 'cursor-heart';
   heart.textContent = '♥';
-  heart.style.left = `${event.clientX}px`;
-  heart.style.top = `${event.clientY}px`;
+  heart.style.left = `${x}px`;
+  heart.style.top = `${y}px`;
   document.body.append(heart);
   heart.addEventListener('animationend', () => heart.remove());
+}
+
+document.addEventListener('pointermove', event => {
+  if (event.pointerType !== 'mouse') return;
+  spawnGreenHeart(event.clientX, event.clientY);
+});
+
+document.addEventListener('pointerdown', event => {
+  if (event.pointerType === 'touch') spawnGreenHeart(event.clientX, event.clientY);
 });
 
 document.querySelectorAll('.memory-box').forEach(box => {
@@ -123,6 +144,62 @@ birthdayAudio.addEventListener('timeupdate', () => {
 
 birthdayAudio.addEventListener('ended', () => {
   lyricLines.forEach((line, index) => line.classList.toggle('is-current', index === 0));
+});
+
+const bootyVideo = document.querySelector('#booty-video');
+const bootyStatus = document.querySelector('#booty-status');
+const bootyButton = document.querySelector('#booty-button');
+const bootyGallery = document.querySelector('#booty-gallery');
+const bootyNextButton = document.querySelector('#booty-next-button');
+
+bootyVideo.addEventListener('ended', () => {
+  bootyStatus.textContent = 'Video complete — now there’s one more thing to see.';
+  bootyButton.hidden = false;
+  bootyButton.disabled = false;
+  bootyButton.textContent = 'Click here to see the booty →';
+});
+
+bootyButton.addEventListener('click', () => {
+  bootyVideo.hidden = true;
+  bootyGallery.hidden = false;
+  bootyButton.disabled = true;
+  bootyButton.hidden = true;
+  bootyStatus.textContent = 'Tap or hover a photo to make it shine.';
+  [...document.querySelectorAll('.booty-photo-card')].forEach((card, index) => {
+    window.setTimeout(() => card.classList.add('is-visible'), index * 170);
+  });
+  window.setTimeout(() => { bootyNextButton.hidden = false; }, 600);
+});
+
+bootyNextButton.addEventListener('click', () => showPage(currentPage + 1));
+
+document.querySelectorAll('.booty-photo-card').forEach(card => {
+  card.addEventListener('pointerdown', () => {
+    card.classList.add('is-active');
+    window.setTimeout(() => card.classList.remove('is-active'), 750);
+  });
+});
+
+let revealedMemories = 0;
+const memoryCards = [...document.querySelectorAll('.memory-box')];
+const memoryButton = document.querySelector('.memory-button');
+const memoriesThanks = document.querySelector('.memories-thanks');
+
+memoryButton.addEventListener('click', () => {
+  if (revealedMemories < memoryCards.length) {
+    const card = memoryCards[revealedMemories];
+    card.hidden = false;
+    card.classList.add('is-revealing');
+    card.animate([{ opacity: 0, transform: 'translateY(18px) scale(.95)' }, { opacity: 1, transform: 'none' }], { duration: 440, easing: 'ease-out' });
+    window.setTimeout(() => card.classList.remove('is-revealing'), 1500);
+    revealedMemories += 1;
+    if (revealedMemories === memoryCards.length) {
+      memoriesThanks.hidden = false;
+      memoryButton.textContent = 'Let’s move further →';
+    }
+    return;
+  }
+  showPage(currentPage + 1);
 });
 
 const countdownNumber = document.querySelector('#countdown-number');

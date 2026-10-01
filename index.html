@@ -86,13 +86,13 @@
         <p class="eyebrow">Move your cursor over each box</p>
         <h2 id="memories-title" class="dancing-title"><span>Happy</span> <span>Birthday</span> <span>Preksha!</span></h2>
         <div class="memory-grid">
-          <article class="memory-box"><span class="elephant-popup" aria-label="Baby elephant lifting its trunk and squirting hearts"><img class="elephant-down" src="assets/elephant-trunk-down.png" alt="" /><img class="elephant-hearts" src="assets/elephant-heart-squirt.png" alt="" /></span><h3>That kind heart</h3><p>You’re such a kind and wonderful person. I feel lucky to share such a good bond with you.</p></article>
-          <article class="memory-box"><span class="elephant-popup" aria-label="Baby elephant lifting its trunk and squirting hearts"><img class="elephant-down" src="assets/elephant-trunk-down.png" alt="" /><img class="elephant-hearts" src="assets/elephant-heart-squirt.png" alt="" /></span><h3>Your lovely smile</h3><p>A smile that turns even an ordinary moment into something warm.</p></article>
-          <article class="memory-box"><span class="elephant-popup" aria-label="Baby elephant lifting its trunk and squirting hearts"><img class="elephant-down" src="assets/elephant-trunk-down.png" alt="" /><img class="elephant-hearts" src="assets/elephant-heart-squirt.png" alt="" /></span><h3>Being wonderfully you</h3><p>Every little thing that makes you unique is exactly what makes you unforgettable.</p></article>
-          <article class="memory-box"><span class="elephant-popup" aria-label="Baby elephant lifting its trunk and squirting hearts"><img class="elephant-down" src="assets/elephant-trunk-down.png" alt="" /><img class="elephant-hearts" src="assets/elephant-heart-squirt.png" alt="" /></span><h3>Memories</h3><p>Looking at your eyes — log out hago time alli nin nanna nodtha ididdiddu, and Majestic alli we standing opposite each other. This memory and feeling are never gonna change. I know you never gonna choose me hantha, but it’s up to you. I am not gonna force you or chase you for the same!</p></article>
+          <article class="memory-box" hidden><span class="elephant-popup" aria-label="Baby elephant lifting its trunk and squirting hearts"><img class="elephant-down" src="assets/elephant-trunk-down.png" alt="" /><img class="elephant-hearts" src="assets/elephant-heart-squirt.png" alt="" /></span><h3>That kind heart</h3><p>You’re such a kind and wonderful person. I feel lucky to share such a good bond with you.</p></article>
+          <article class="memory-box" hidden><span class="elephant-popup" aria-label="Baby elephant lifting its trunk and squirting hearts"><img class="elephant-down" src="assets/elephant-trunk-down.png" alt="" /><img class="elephant-hearts" src="assets/elephant-heart-squirt.png" alt="" /></span><h3>Your lovely smile</h3><p>A smile that turns even an ordinary moment into something warm.</p></article>
+          <article class="memory-box" hidden><span class="elephant-popup" aria-label="Baby elephant lifting its trunk and squirting hearts"><img class="elephant-down" src="assets/elephant-trunk-down.png" alt="" /><img class="elephant-hearts" src="assets/elephant-heart-squirt.png" alt="" /></span><h3>Being wonderfully you</h3><p>Every little thing that makes you unique is exactly what makes you unforgettable.</p></article>
+          <article class="memory-box" hidden><span class="elephant-popup" aria-label="Baby elephant lifting its trunk and squirting hearts"><img class="elephant-down" src="assets/elephant-trunk-down.png" alt="" /><img class="elephant-hearts" src="assets/elephant-heart-squirt.png" alt="" /></span><h3>Memories</h3><p>Looking at your eyes — log out hago time alli nin nanna nodtha ididdiddu, and Majestic alli we standing opposite each other. This memory and feeling are never gonna change. I know you never gonna choose me hantha, but it’s up to you. I am not gonna force you or chase you for the same!</p></article>
         </div>
-        <p class="memories-thanks">THANK YOU very much. Can move further — just 2 more pages.</p>
-        <button class="primary-button next-button" type="button">Let’s move further →</button>
+        <p class="memories-thanks" hidden>THANK YOU very much. Can move further — just 2 more pages.</p>
+        <button class="primary-button memory-button" type="button">Click Here... ✨</button>
       </section>
 
       <!-- PAGE 8: birthday wishes celebration -->
@@ -108,8 +108,23 @@
         <button class="primary-button next-button" type="button">One last surprise →</button>
       </section>
 
+      <!-- VIDEO AND PHOTO REVEAL PAGE -->
+      <section class="panel booty-page" data-page="8" aria-labelledby="booty-title" hidden>
+        <p class="eyebrow">One more surprise</p>
+        <h2 id="booty-title">What a booty full moves ✨</h2>
+        <video class="booty-video" id="booty-video" controls autoplay muted playsinline><source src="assets/booty-moves.mp4" type="video/mp4" />Your browser does not support video playback.</video>
+        <p class="booty-status" id="booty-status">Watch till the end...</p>
+        <button class="primary-button booty-button" id="booty-button" type="button" disabled>W8 for the end, then click the button</button>
+        <div class="booty-gallery" id="booty-gallery" hidden>
+          <article class="booty-photo-card"><img src="assets/booty-photo-1.png" alt="Beautiful memory one" /><h3>Her smile says it all</h3><p>A little glow that makes every picture feel special.</p></article>
+          <article class="booty-photo-card"><img src="assets/booty-photo-2.png" alt="Beautiful memory two" /><h3>Together vibes</h3><p>Some moments don’t need big words—being beside you, sharing a smile, and seeing you happy is more than enough for me.</p></article>
+          <article class="booty-photo-card"><img src="assets/booty-photo-3.png" alt="Beautiful memory three" /><h3>Pretty soul</h3><p>Keep being the amazing person you are.</p></article>
+        </div>
+        <button class="primary-button booty-next-button" id="booty-next-button" type="button" hidden>Go to final page →</button>
+      </section>
+
       <!-- FINAL PAGE: inspired by the requested birthday-message layout -->
-      <section class="panel reference-final-page" data-page="8" aria-labelledby="final-page-title" hidden>
+      <section class="panel reference-final-page" data-page="9" aria-labelledby="final-page-title" hidden>
         <h2 id="final-page-title">Happy bornday, PreksHa 🎉</h2>
         <p class="final-intro">Another beautiful year of you. Here’s to every smile, every memory, and the next chapter waiting for you.</p>
         <figure class="final-photo-frame"><img src="assets/birthday-donkey.png" alt="A funny donkey on a mountain road" /><figcaption>Out of my photos, I liked this one, so I chose it!!</figcaption></figure>
