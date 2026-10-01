@@ -190,12 +190,15 @@ memoryButton.addEventListener('click', () => {
     const card = memoryCards[revealedMemories];
     card.hidden = false;
     card.classList.add('is-revealing');
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
     card.animate([{ opacity: 0, transform: 'translateY(18px) scale(.95)' }, { opacity: 1, transform: 'none' }], { duration: 440, easing: 'ease-out' });
     window.setTimeout(() => card.classList.remove('is-revealing'), 1500);
     revealedMemories += 1;
     if (revealedMemories === memoryCards.length) {
       memoriesThanks.hidden = false;
       memoryButton.textContent = 'Let’s move further →';
+    } else {
+      memoryButton.textContent = `Reveal memory ${revealedMemories + 1} of ${memoryCards.length} →`;
     }
     return;
   }
