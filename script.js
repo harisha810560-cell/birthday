@@ -80,14 +80,31 @@ characterButton.addEventListener('click', () => {
   showPage(currentPage + 1);
 });
 
-function spawnGreenHeart(x, y) {
+function spawnGreenHeart(x, y, burstX = 0, burstY = 0, delay = 0) {
   const heart = document.createElement('span');
   heart.className = 'cursor-heart';
   heart.textContent = '♥';
   heart.style.left = `${x}px`;
   heart.style.top = `${y}px`;
+  heart.style.setProperty('--burst-x', `${burstX}px`);
+  heart.style.setProperty('--burst-y', `${burstY}px`);
+  heart.style.animationDelay = `${delay}ms`;
   document.body.append(heart);
   heart.addEventListener('animationend', () => heart.remove());
+}
+
+function burstGreenHearts(x, y) {
+  for (let index = 0; index < 9; index += 1) {
+    const angle = (Math.PI * 2 * index) / 9 + (Math.random() - .5) * .34;
+    const distance = 25 + Math.random() * 55;
+    spawnGreenHeart(
+      x,
+      y,
+      Math.cos(angle) * distance,
+      Math.sin(angle) * distance - 35,
+      index * 22,
+    );
+  }
 }
 
 document.addEventListener('pointermove', event => {
@@ -96,7 +113,7 @@ document.addEventListener('pointermove', event => {
 });
 
 document.addEventListener('pointerdown', event => {
-  if (event.pointerType === 'touch') spawnGreenHeart(event.clientX, event.clientY);
+  if (event.pointerType === 'touch') burstGreenHearts(event.clientX, event.clientY);
 });
 
 document.querySelectorAll('.memory-box').forEach(box => {
