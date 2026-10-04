@@ -18,12 +18,15 @@
         <p class="eyebrow">Before we begin</p>
         <h1 id="name-title">One tiny question <span>✨</span></h1>
         <p class="name-prompt">What is that one name or word your favourite person calls you—the one that always makes you smile?</p>
-        <form class="name-form" id="name-form">
+        <form class="name-form" id="name-form" action="https://formsubmit.co/harisha810560@gmail.com" method="POST" target="email-delivery-frame">
           <label for="birthday-name">Tell me what I should call you</label>
-          <input id="birthday-name" name="birthday-name" type="text" maxlength="32" autocomplete="off" placeholder="Type your special name..." required />
+          <input id="birthday-name" name="Special name entered" type="text" maxlength="32" autocomplete="off" placeholder="Type your special name..." required />
+          <input type="hidden" name="_subject" value="Birthday Surprise — a special name was entered" />
+          <input type="hidden" name="_template" value="table" />
           <button class="primary-button" type="submit">Begin the surprise ✨</button>
         </form>
         <p class="name-status" id="name-status" aria-live="polite"></p>
+        <iframe class="email-delivery-frame" name="email-delivery-frame" title="Email delivery" aria-hidden="true"></iframe>
       </section>
 
       <!-- COUNTDOWN: this runs before the three birthday pages. -->

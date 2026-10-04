@@ -109,6 +109,7 @@ h2 { color: var(--deep-pink); font-family: Pacifico, cursive; font-size: clamp(2
 .name-form input:focus { border-color: var(--pink); box-shadow: 0 0 0 4px rgb(237 92 154 / .14); }
 .name-form .primary-button { justify-self: center; margin-top: .35rem; }
 .name-status { min-height: 1.4rem; margin: .8rem auto 0; color: #7e688d; font-size: .85rem; }
+.email-delivery-frame { position: absolute; width: 1px; height: 1px; border: 0; opacity: 0; pointer-events: none; }
 
 /* Keep the revealed gallery comfortably inside the page on desktop and mobile. */
 .booty-page { align-self: start; padding: 2rem 0 3rem; }

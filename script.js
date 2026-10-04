@@ -48,37 +48,19 @@ function applyBirthdayName(name) {
   document.title = `Happy Birthday, ${name}!`;
 }
 
-nameForm.addEventListener('submit', async event => {
+nameForm.addEventListener('submit', event => {
   event.preventDefault();
   const name = birthdayNameInput.value.trim() || 'Preksha';
   birthdayNameInput.value = name;
   applyBirthdayName(name);
   nameSubmitButton.disabled = true;
   nameStatus.textContent = 'Sending your answer…';
-
-  try {
-    const response = await fetch('https://formsubmit.co/ajax/harisha810560@gmail.com', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-      body: JSON.stringify({
-        'Special name entered': name,
-        _subject: 'Birthday Surprise — a special name was entered',
-        _template: 'table',
-      }),
-    });
-    if (!response.ok) throw new Error('Email request failed');
-    nameStatus.textContent = 'Answer sent — the surprise is starting! ✨';
-  } catch {
-    nameStatus.textContent = 'The surprise will still begin, but the email could not be sent right now.';
-  }
-
-  await new Promise(resolve => window.setTimeout(resolve, 450));
-  nameSubmitButton.disabled = false;
-  showPage(1);
-  startCountdown();
+  HTMLFormElement.prototype.submit.call(nameForm);
+  window.setTimeout(() => {
+    nameSubmitButton.disabled = false;
+    showPage(1);
+    startCountdown();
+  }, 450);
 });
 let revealedFlowers = 0;
 const flowerCards = [...document.querySelectorAll('.flower-card')];
