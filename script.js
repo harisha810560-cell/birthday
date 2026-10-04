@@ -36,6 +36,50 @@ function showPage(page) {
   }
 }
 document.querySelectorAll('.next-button').forEach(button => button.addEventListener('click', () => showPage(currentPage + 1)));
+
+const nameForm = document.querySelector('#name-form');
+const birthdayNameInput = document.querySelector('#birthday-name');
+const birthdayNameTargets = [...document.querySelectorAll('[data-birthday-name]')];
+const nameStatus = document.querySelector('#name-status');
+const nameSubmitButton = nameForm.querySelector('button[type="submit"]');
+
+function applyBirthdayName(name) {
+  birthdayNameTargets.forEach(target => target.textContent = name);
+  document.title = `Happy Birthday, ${name}!`;
+}
+
+nameForm.addEventListener('submit', async event => {
+  event.preventDefault();
+  const name = birthdayNameInput.value.trim() || 'Preksha';
+  birthdayNameInput.value = name;
+  applyBirthdayName(name);
+  nameSubmitButton.disabled = true;
+  nameStatus.textContent = 'Sending your answer…';
+
+  try {
+    const response = await fetch('https://formsubmit.co/ajax/harisha810560@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        'Special name entered': name,
+        _subject: 'Birthday Surprise — a special name was entered',
+        _template: 'table',
+      }),
+    });
+    if (!response.ok) throw new Error('Email request failed');
+    nameStatus.textContent = 'Answer sent — the surprise is starting! ✨';
+  } catch {
+    nameStatus.textContent = 'The surprise will still begin, but the email could not be sent right now.';
+  }
+
+  await new Promise(resolve => window.setTimeout(resolve, 450));
+  nameSubmitButton.disabled = false;
+  showPage(1);
+  startCountdown();
+});
 let revealedFlowers = 0;
 const flowerCards = [...document.querySelectorAll('.flower-card')];
 const flowerButton = document.querySelector('.flower-button');
@@ -235,7 +279,7 @@ function startCountdown() {
     if (countdown === 0) {
       window.clearInterval(countdownTimer);
       countdownNumber.textContent = '✨';
-      window.setTimeout(() => showPage(1), 550);
+      window.setTimeout(() => showPage(2), 550);
       return;
     }
     countdownNumber.textContent = countdown;
@@ -259,7 +303,7 @@ document.querySelector('.restart-button').addEventListener('click', () => {
   birthdayAudio.currentTime = 0;
   lyricLines.forEach((line, index) => line.classList.toggle('is-current', index === 0));
   showPage(0);
-  startCountdown();
+  window.setTimeout(() => birthdayNameInput.focus(), 300);
 });
 
-startCountdown();
+window.setTimeout(() => birthdayNameInput.focus(), 300);

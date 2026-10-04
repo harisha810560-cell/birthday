@@ -13,18 +13,31 @@
     <main class="birthday-card">
       <span class="floating floating-one" aria-hidden="true">♥</span><span class="floating floating-two" aria-hidden="true">✦</span><span class="floating floating-three" aria-hidden="true">♡</span>
 
+      <!-- PERSONAL NAME PAGE: this runs before the countdown. -->
+      <section class="panel name-page" data-page="0" aria-labelledby="name-title">
+        <p class="eyebrow">Before we begin</p>
+        <h1 id="name-title">One tiny question <span>✨</span></h1>
+        <p class="name-prompt">What is that one name or word your favourite person calls you—the one that always makes you smile?</p>
+        <form class="name-form" id="name-form">
+          <label for="birthday-name">Tell me what I should call you</label>
+          <input id="birthday-name" name="birthday-name" type="text" maxlength="32" autocomplete="off" placeholder="Type your special name..." required />
+          <button class="primary-button" type="submit">Begin the surprise ✨</button>
+        </form>
+        <p class="name-status" id="name-status" aria-live="polite"></p>
+      </section>
+
       <!-- COUNTDOWN: this runs before the three birthday pages. -->
-      <section class="panel countdown-page" data-page="0" aria-live="polite" aria-labelledby="countdown-title">
+      <section class="panel countdown-page" data-page="1" aria-live="polite" aria-labelledby="countdown-title" hidden>
         <p class="countdown-copy" id="countdown-title">A little birthday surprise is about to begin</p>
         <p class="countdown-number" id="countdown-number">3</p>
-        <p class="countdown-name">for Preksha ✨</p>
+        <p class="countdown-name">for <span data-birthday-name>Preksha</span> ✨</p>
       </section>
 
       <!-- PAGE 1: opening page -->
       <section class="panel intro-page" data-page="1" aria-labelledby="welcome-title" hidden>
-        <h1 id="welcome-title">Happy Birthday<br />Preksha <span>💗</span></h1>
+        <h1 id="welcome-title">Happy Birthday<br /><span data-birthday-name>Preksha</span> <span>💗</span></h1>
         <!-- Change this opening line to anything you want. -->
-        <p class="typing-line">Hey Preksha, today is your special day! ✨</p>
+        <p class="typing-line">Hey <span data-birthday-name>Preksha</span>, today is your special day! ✨</p>
         <button class="primary-button next-button enter-world-button" type="button">Let’s enter my world. ✨<span class="click-cue">Click me</span></button>
       </section>
 
@@ -55,7 +68,7 @@
 
       <!-- PAGE 5: flower reveal page -->
       <section class="panel flower-page" data-page="4" aria-labelledby="flower-title" hidden>
-        <p class="eyebrow">For Preksha</p>
+        <p class="eyebrow">For <span data-birthday-name>Preksha</span></p>
         <h2 id="flower-title">Three little flowers for you</h2>
         <div class="flower-reveals" aria-live="polite">
           <article class="flower-card" data-flower="0" hidden><span class="flower-art" aria-hidden="true">🌻</span><h3>Sunflower</h3><p>“A little sunshine in every petal.”</p></article>
@@ -84,7 +97,7 @@
       <!-- PAGE 7: dancing birthday and memory page -->
       <section class="panel memories-page" data-page="6" aria-labelledby="memories-title" hidden>
         <p class="eyebrow">Move your cursor over each box</p>
-        <h2 id="memories-title" class="dancing-title"><span>Happy</span> <span>Birthday</span> <span>Preksha!</span></h2>
+        <h2 id="memories-title" class="dancing-title"><span>Happy</span> <span>Birthday</span> <span data-birthday-name>Preksha</span><span>!</span></h2>
         <div class="memory-grid">
           <article class="memory-box" hidden><span class="elephant-popup" aria-label="Baby elephant lifting its trunk and squirting hearts"><img class="elephant-down" src="assets/elephant-trunk-down.png" alt="" /><img class="elephant-hearts" src="assets/elephant-heart-squirt.png" alt="" /></span><h3>That kind heart</h3><p>You’re such a kind and wonderful person. I feel lucky to share such a good bond with you.</p></article>
           <article class="memory-box" hidden><span class="elephant-popup" aria-label="Baby elephant lifting its trunk and squirting hearts"><img class="elephant-down" src="assets/elephant-trunk-down.png" alt="" /><img class="elephant-hearts" src="assets/elephant-heart-squirt.png" alt="" /></span><h3>Your lovely smile</h3><p>A smile that turns even an ordinary moment into something warm.</p></article>
@@ -100,7 +113,7 @@
         <video class="fireworks-video" id="fireworks-video" muted loop playsinline aria-hidden="true"><source src="assets/fireworks-celebration.mov" type="video/quicktime" /></video>
         <div class="wish-bloom" aria-hidden="true">🌸 &nbsp; ✦ &nbsp; 🌻</div>
         <p class="eyebrow">The birthday girl</p>
-        <h2 id="wishes-title">Wishes for Preksha</h2>
+        <h2 id="wishes-title">Wishes for <span data-birthday-name>Preksha</span></h2>
         <p class="wish-message">May your birthday be full of laughter, flowers, beautiful surprises, and every tiny thing that makes your heart feel happy.</p>
         <p class="wish-message">May the year ahead bring you the peace you deserve, the dreams you want, and more reasons to shine every day.</p>
         <p class="wish-message wish-extra">⭐ Happy for you, Kane 💙 If you’re going out with your loved ones, that’s completely fine. But if you’re going to the temple alone, and if you’re comfortable with it, I can come with you. Just call me if you feel like having me there—I’ll be there. No pressure at all, only if you’re comfortable.</p>

@@ -101,6 +101,15 @@ h2 { color: var(--deep-pink); font-family: Pacifico, cursive; font-size: clamp(2
 
 .booty-video[hidden], .booty-gallery[hidden], .booty-next-button[hidden] { display: none !important; }
 
+.name-page { max-width: 530px; }
+.name-prompt { max-width: 470px; margin: 1.15rem auto 1.35rem; color: #705d78; font-size: clamp(1rem, 2.4vw, 1.15rem); line-height: 1.6; }
+.name-form { display: grid; gap: .75rem; max-width: 380px; margin: auto; text-align: left; }
+.name-form label { color: #9b7195; font-size: .88rem; font-weight: 700; }
+.name-form input { width: 100%; min-height: 52px; border: 2px solid rgb(207 59 123 / .22); border-radius: 14px; padding: .8rem 1rem; color: var(--ink); outline: none; font: 500 1rem "DM Sans", sans-serif; background: rgb(255 255 255 / .78); box-shadow: 0 8px 18px rgb(96 68 139 / .08); transition: border-color .2s, box-shadow .2s; }
+.name-form input:focus { border-color: var(--pink); box-shadow: 0 0 0 4px rgb(237 92 154 / .14); }
+.name-form .primary-button { justify-self: center; margin-top: .35rem; }
+.name-status { min-height: 1.4rem; margin: .8rem auto 0; color: #7e688d; font-size: .85rem; }
+
 /* Keep the revealed gallery comfortably inside the page on desktop and mobile. */
 .booty-page { align-self: start; padding: 2rem 0 3rem; }
 .booty-page h2 { max-width: 820px; margin-inline: auto; font-size: clamp(2.1rem, 5vw, 3.5rem); }

@@ -4,7 +4,9 @@
 
 [Open the latest Preksha Birthday Surprise](https://harisha810560-cell.github.io/birthday/)
 
-Latest published URL: <https://harisha810560-cell.github.io/birthday/>
+Latest public version: <https://harisha810560-cell.github.io/birthday/>
+
+The welcome page lets the birthday girl enter her special name before the countdown starts; that name is used throughout the surprise.
 
 Open `index.html` in any browser to preview it.
 
